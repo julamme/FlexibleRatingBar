@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * Flexible rating bar with adjustable point number. Supports custom drawables
+ * @author Juhani Lammi
  */
 
 public class FlexibleRatingBar extends LinearLayout implements View.OnClickListener {
@@ -37,6 +38,7 @@ public class FlexibleRatingBar extends LinearLayout implements View.OnClickListe
     private static Drawable mDefaultHalfPoint;
     private static Drawable mDefaultEmptyPoint;
     private int mode;
+    private float mRating;
     private boolean hasCustomDrawables = false;
 
     public FlexibleRatingBar(Context context) {
@@ -85,6 +87,17 @@ public class FlexibleRatingBar extends LinearLayout implements View.OnClickListe
         }
     }
 
+    /**
+     *
+     * @return Current rating
+     */
+    public float getRating(){
+        return mRating;
+    }
+    /**
+     *
+     * @param numberOfPoints Number of points used
+     */
     public void setNumberOfPoints(int numberOfPoints) {
         mNumberOfPoints = numberOfPoints;
     }
@@ -113,6 +126,7 @@ public class FlexibleRatingBar extends LinearLayout implements View.OnClickListe
      * @param mode   Sets the rating to be displayed as whole numbers or halves.
      */
     public void setRating(final float rating, int mode) {
+        mRating = rating;
         this.mode = mode;
         long iPart = (long) rating;
         float fPart = rating - iPart;
@@ -200,6 +214,7 @@ public class FlexibleRatingBar extends LinearLayout implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
+
         setRating(v.getId() + 1, MODE_FULL);
     }
 }

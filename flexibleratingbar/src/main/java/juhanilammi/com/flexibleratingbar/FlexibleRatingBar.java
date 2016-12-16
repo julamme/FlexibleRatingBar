@@ -188,8 +188,6 @@ public class FlexibleRatingBar extends LinearLayout implements View.OnClickListe
                     }
                 }
             }
-
-
         }
         invalidate();
         requestLayout();
@@ -202,15 +200,7 @@ public class FlexibleRatingBar extends LinearLayout implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-
         setRating(v.getId() + 1, MODE_FULL);
-
-      /* for (int i = 0; i < mNumberOfPoints - 1; i++) {
-            if (v.getId() == i) {
-                Log.d(TAG, "onClick: v "+v.getId());
-                setRating(i + 1, MODE_FULL);
-            }
-        }*/
     }
 }
 
